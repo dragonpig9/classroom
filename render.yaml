@@ -1,0 +1,24 @@
+# Render Blueprint — one Web Service serves the Express API + built React app.
+services:
+  - type: web
+    name: pathlight-dse
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 22.12.0
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: ./data
+      # Optional: set in the Render dashboard to switch the HKEAA analyzer and
+      # practice generator from deterministic simulation to live Claude.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-opus-5-5

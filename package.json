@@ -1,0 +1,33 @@
+{
+  "name": "pathlight-dse-academic",
+  "version": "1.0.0",
+  "description": "PathLight 學途 — F.1–F.6 longitudinal academic analytics, F.3 elective advisor, honest DSE predictor, JUPAS/sub-degree planner and HKEAA report analyzer (demo).",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,green \"node --watch server/index.js\" \"vite\"",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "reset-data": "node server/reset.js",
+    "smoke": "node server/smoke.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.10.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "express": "^4.21.2",
+    "lucide-react": "^0.468.0",
+    "postcss": "^8.4.49",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.15.0",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.4.11"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
